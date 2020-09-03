@@ -16,16 +16,19 @@ stages:
     steps:
     - bash: echo Build SecondJob
 - stage: Devdeploy 
+  dependsOn: Build
   jobs:
   - job: FirstJob
     steps:
     - bash: echo Devdeploy FirstJob
 - stage: QAdeploy 
+  dependsOn: Build
   jobs:
   - job: FirstJob
     steps:
     - bash: echo QAdeploy FirstJob
 - stage: UATdeploy 
+  dependsOn:QAdeploy
   jobs:
   - job: FirstJob
     steps:

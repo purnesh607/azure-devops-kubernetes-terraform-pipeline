@@ -27,8 +27,11 @@ stages:
   - job: FirstJob
     steps:
     - bash: echo QAdeploy FirstJob
-- stage: UATdeploy 
+- stage: ProdDeploy
+  dependsOn: 
+   - Devdeploy
+   - QAdeploy
   jobs:
-  - job: FirstJob
-    steps:
-    - bash: echo QAdeploy FirstJob
+   - job: ProdDeployJob
+     steps:
+     - bash: echo ProdDeployJob

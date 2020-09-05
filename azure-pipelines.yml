@@ -22,7 +22,7 @@ stages:
     - bash: node --version
     - bash: python --version 
     - bash: mvn -version
-    - powershell: Write to log "$env:APPLOGS"
+    - powershell: Write-Host "$env:APPLOGS"
     - bash: ls -R $(Build.ArtifactStagingDirectory)
     - task: CopyFiles@2
       inputs:
